@@ -36,5 +36,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--On Top View Controller-->
+        <scene sceneID="STS-WD-hng">
+            <objects>
+                <viewController storyboardIdentifier="OnTopViewController" id="4z4-Ny-ir3" customClass="OnTopViewController" customModule="VideoPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7Tr-ge-gyu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="speaker" translatesAutoresizingMaskIntoConstraints="NO" id="UXu-Ii-Fvc">
+                                <rect key="frame" x="112.66666666666669" y="331" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="Rae-gH-0eP"/>
+                                    <constraint firstAttribute="height" constant="150" id="vBV-ba-9Lj"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="UXu-Ii-Fvc" firstAttribute="centerX" secondItem="7Tr-ge-gyu" secondAttribute="centerX" id="GGq-Gb-Ksy"/>
+                            <constraint firstItem="UXu-Ii-Fvc" firstAttribute="centerY" secondItem="7Tr-ge-gyu" secondAttribute="centerY" id="q6R-D1-ll5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wir-Wo-Yb0"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wjP-S3-aVJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1308" y="21"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="speaker" width="96" height="96"/>
+    </resources>
 </document>
