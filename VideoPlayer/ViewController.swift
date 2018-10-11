@@ -10,15 +10,25 @@ import UIKit
 import AVKit
 
 class ViewController: UIViewController {
-
+    
+    let videoPlayer = AVPlayerViewController()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        NotificationCenter.default.addObserver(self, selector:#selector(self.playerDidFinishPlaying(note:)),name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
+        
     }
-
+    
+    @objc func playerDidFinishPlaying(note: NSNotification){
+        print("dataEnded")
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func playVideo(_ sender: Any) {
         let video = AVPlayer(url: URL(string: "http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v")!)
-        let videoPlayer = AVPlayerViewController()
+        
         videoPlayer.player = video
         videoPlayer.showsPlaybackControls = false
         present(videoPlayer, animated: true) {
@@ -29,4 +39,3 @@ class ViewController: UIViewController {
     }
     
 }
-
