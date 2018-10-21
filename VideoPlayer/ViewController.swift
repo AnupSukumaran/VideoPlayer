@@ -31,39 +31,51 @@ class ViewController: UIViewController {
     }
     
     @IBAction func playVideo(_ sender: Any) {
+
+       // asSeperatePlayer()
+        callPayerAsALayer()
+        
+
+
+    }
+    
+    //MARK: VIDEO LAYER
+    func callPayerAsALayer() {
+                let videoURL = URL(string: "https://www.electronicvillage.org/evquizapp/upload/questions/12.mp4")
+                let player = AVPlayer(url: videoURL!)
+                let playerLayer = AVPlayerLayer(player: player)
+                playerLayer.frame = self.view.bounds
+                self.view.layer.addSublayer(playerLayer)
+                player.play()
+    }
+    
+    //MARK: As Separate Player
+    func asSeperatePlayer() {
         //"http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v"
         let video = AVPlayer(url: URL(string: "https://www.electronicvillage.org/evquizapp/upload/questions/13.mp3")!)
-//
+        //
         videoPlayer.player = video
-       // videoPlayer.showsPlaybackControls = false
-
+        // videoPlayer.showsPlaybackControls = false
+        
         present(videoPlayer, animated: true) {
-        print("Playing...")
-           
+            print("Playing...")
             
-        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OnTopViewController") as! OnTopViewController
+            
+            let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OnTopViewController") as! OnTopViewController
             self.videoPlayer.addChild(popOverVC)
             self.videoPlayer.view.addSubview(popOverVC.view)
             popOverVC.view.center = CGPoint(x: self.videoPlayer.view.bounds.midX, y: self.videoPlayer.view.bounds.midY)
             popOverVC.didMove(toParent: self.videoPlayer)
             
-//            let imageView = UIImageView(frame: CGRect(x: popOverVC.view.bounds.midX
-//                , y: popOverVC.view.bounds.midY, width: 50 , height: 50))
-//            imageView.image = UIImage(named: "speaker")
-//            imageView.contentMode = .scaleAspectFit
-//            popOverVC.view.addSubview(imageView)
-        video.play()
-        video.accessibilityElementsHidden = true
-
+            //            let imageView = UIImageView(frame: CGRect(x: popOverVC.view.bounds.midX
+            //                , y: popOverVC.view.bounds.midY, width: 50 , height: 50))
+            //            imageView.image = UIImage(named: "speaker")
+            //            imageView.contentMode = .scaleAspectFit
+            //            popOverVC.view.addSubview(imageView)
+            video.play()
+            video.accessibilityElementsHidden = true
+            
         }
-        
-//        let videoURL = URL(string: "https://www.electronicvillage.org/evquizapp/upload/questions/12.mp4")
-//        let player = AVPlayer(url: videoURL!)
-//        let playerLayer = AVPlayerLayer(player: player)
-//        playerLayer.frame = self.view.bounds
-//        self.view.layer.addSublayer(playerLayer)
-//        player.play()
-//
     }
     
 }
